@@ -1,26 +1,25 @@
 :root {
-  background-color: #000;
-  --color-text: #fff;
+  --primary-color: #D8D846;
+  --dark: #000000;
 }
 
-.Background {
+.app-container {
+  background-color: var(--dark);
+}
+
+.background-circle {
   position: fixed;
-  background: radial-gradient(
-    71.43% 62.3% at 46.43% 36.43%,
-    rgba(18, 229, 229, 0) 15%,
-    rgba(239, 155, 255, 0.3) 56.35%,
-    #ff6448 100%
-  );
-  box-shadow: 0px 12.93px 28.74px 0px #ffd28db2 inset;
-  border-radius: 50%;
   width: 200vw;
   height: 200vw;
-  top: -60vw;
+  top: -70vw;
   left: -14.27vw;
+  border-radius: 9999px;
   transform: rotate(15.25deg);
+  background-color: var(--primary-color);
+  box-shadow: inset 0px 12.93px 28.74px 0px #ffd28db2;
 }
 
-.App {
+.main-content {
   position: relative;
   min-height: 100vh;
   display: flex;
@@ -29,11 +28,7 @@
   justify-content: center;
 }
 
-text {
-  color: var(--color-text);
-}
-
-.Banner {
+.banner-container {
   flex: 5;
   display: flex;
   flex-direction: column;
@@ -42,78 +37,67 @@ text {
   z-index: 100;
 }
 
-.Logo {
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 8px;
-}
-
-.Logo--react {
-  width: 100px;
-  height: 100px;
-  animation: Logo--spin infinite 20s linear;
-}
-
-.Logo--lynx {
-  width: 100px;
-  height: 100px;
-  animation: Logo--shake infinite 0.5s ease;
-}
-
-@keyframes Logo--spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@keyframes Logo--shake {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(0.9);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
-
-.Content {
+.logo-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  margin-bottom: 180px;
 }
 
-.Arrow {
-  width: 24px;
-  height: 24px;
+.logo-image {
+  width: 170px;
+  height: 170px;
 }
 
-.Title {
-  font-size: 36px;
+.icon-image {
+  width: 52px;
+  height: 52px;
+}
+
+.content-section {
+  position: relative;
+  top: -150px;
+}
+
+.navigation-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  margin: 48px auto 0;
+}
+
+.navigation-text {
+  font-size: 2rem;
   font-weight: 700;
+  color: var(--primary-color);
+  text-align: center;
+  margin: 0 auto;
 }
 
-.Subtitle {
-  font-style: italic;
-  font-size: 22px;
-  font-weight: 600;
-  margin-bottom: 8px;
+.title-text {
+  font-size: 2rem;
+  font-weight: 700;
+  text-align: center;
+  margin: 0 auto;
+  color: var(--dark);
 }
 
-.Description {
-  font-size: 20px;
-  color: rgba(255, 255, 255, 0.85);
-  margin: 15rpx;
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1.5rem auto 0;
+  width: 200px;
+  height: 50px;
+  background-color: var(--primary-color);
+  border-radius: 0.375rem;
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
 }
 
-.Hint {
-  font-size: 12px;
-  margin: 5px;
-  color: rgba(255, 255, 255, 0.65);
+.button-text {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--dark);
 }

@@ -1,45 +1,37 @@
 import { useCallback, useEffect, useState } from '@lynx-js/react'
 
 import './App.css'
-import arrow from './assets/arrow.png'
-import lynxLogo from './assets/lynx-logo.png'
-import reactLynxLogo from './assets/react-logo.png'
+import ltLogo from './assets/lt-logo-small.png'
+import homeIcon from './assets/home-icon.png'
+import userIcon from './assets/user-icon.png' 
+import settingsIcon from './assets/settings-icon.png'
 
 export function App() {
-  const [alterLogo, setAlterLogo] = useState(false)
-
-  useEffect(() => {
-    console.info('Hello, ReactLynx')
-  }, [])
-
-  const onTap = useCallback(() => {
-    'background only'
-    setAlterLogo(!alterLogo)
-  }, [alterLogo])
-
   return (
-    <view>
-      <view className='Background' />
-      <view className='App'>
-        <view className='Banner'>
-          <view className='Logo' bindtap={onTap}>
-            {alterLogo
-              ? <image src={reactLynxLogo} className='Logo--react' />
-              : <image src={lynxLogo} className='Logo--lynx' />}
+    <view className="app-container">
+      <view className="background-circle" />
+      <view className="main-content">
+        <view className="banner-container">
+          <view className="logo-container">
+            <image src={ltLogo} mode="aspectFit" className="logo-image" />
+            <text className="title-text">Latest Thinking</text>
           </view>
-          <text className='Title'>React</text>
-          <text className='Subtitle'>on Lynx</text>
         </view>
-        <view className='Content'>
-          <image src={arrow} className='Arrow' />
-          <text className='Description'>Tap the logo and have fun!</text>
-          <text className='Hint'>
-            Edit<text style={{ fontStyle: 'italic' }}>{' src/App.tsx '}</text>
-            to see updates!
-          </text>
+        <view className="content-section">
+          <text className="navigation-text">Menu</text>
+          <view className="navigation-container">
+            <view>
+              <image src={homeIcon} mode="aspectFit" className="icon-image" />
+            </view>
+            <view>
+              <image src={userIcon} mode="aspectFit" className="icon-image" />
+            </view>
+            <view>
+              <image src={settingsIcon} mode="aspectFit" className="icon-image" />
+            </view>
+          </view>
         </view>
-        <view style={{ flex: 1 }}></view>
-      </view>
+      </view> 
     </view>
   )
 }
