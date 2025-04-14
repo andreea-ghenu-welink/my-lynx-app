@@ -6,7 +6,7 @@ export function Settings() {
 
   return (
     <Container title="Settings" backgroundColor="settings-container">
-      <text className="content-text">
+      <text className="text-2xl font-normal text-center mx-auto text-white">
         Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas.
       </text>
     </Container>

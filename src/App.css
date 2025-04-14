@@ -1,133 +1,21 @@
-:root {
-  --primary-color: #D8D846;
-  --secondary-color: #06c2cc;
-  --accent-color: rgb(159, 147, 33);
-  --dark: #000000;
-  --white: #FFFFFF;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-/* Background Colors */
-.app-container {
-  background-color: var(--dark);
-}
+@layer components {
+  .app-container {
+    @apply bg-dark;
+  }
 
-.account-container {
-  background-color: var(--secondary-color);
-}
+  .account-container {
+    @apply bg-secondary;
+  }
 
-.settings-container {
-  background-color: var(--accent-color);
-}
+  .settings-container {
+    @apply bg-accent;
+  }
 
-.background-circle {
-  position: fixed;
-  width: 200vw;
-  height: 110vw;
-  top: -70vw;
-  left: -14.27vw;
-  border-radius: 9999px;
-  transform: rotate(15.25deg);
-  background-color: var(--primary-color);
-  box-shadow: inset 0px 12.93px 28.74px 0px #ffd28db2;
-  z-index: 0;
-}
-
-/* Layout */
-.main-content {
-  position: relative;
-  z-index: 1;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin: 0 24px;
-}
-
-.content-section {
-  position: relative;
-  top: -150px;
-}
-
-.navigation-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 4px;
-  margin: 60px auto 0;
-}
-
-.banner-container {
-  flex: 5;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  z-index: 100;
-}
-
-.logo-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 180px;
-}
-
-/* Text */
-.title-text {
-  font-size: 3rem;
-  font-weight: 700;
-  text-align: center;
-  margin: 0 auto 24px;
-  color: var(--white);
-}
-
-.content-text {
-  font-size: 1.5rem;
-  font-weight: 400;
-  text-align: center;
-  margin: 0 auto;
-  color: var(--white);
-}
-
-.navigation-text {
-  font-size: 2rem;
-  font-weight: 700;
-  color: var(--primary-color);
-  text-align: center;
-  margin: 0 auto;
-}
-
-/* Components */
-/* Button */
-.button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 16px;
-  margin: 24px auto 0;
-  width: 200px;
-  padding: 10px 0;
-  background-color: var(--primary-color);
-  border-radius: 0.375rem;
-  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-}
-
-.button-text {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: var(--dark);
-}
-
-/* Image */
-.logo-image {
-  width: 170px;
-  height: 170px;
-}
-
-.icon-image {
-  width: 32px;
-  height: 32px;
+  .button {
+    @apply flex items-center justify-center gap-4 mt-[24px] mx-auto w-[200px] py-[10px] bg-primary rounded-md shadow-lg;
+  }
 }
