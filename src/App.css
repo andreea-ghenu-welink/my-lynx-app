@@ -16,6 +16,6 @@
   }
 
   .button {
-    @apply flex items-center justify-center gap-4 mt-[24px] mx-auto w-[200px] py-[10px] bg-primary rounded-md shadow-lg;
+    @apply flex items-center justify-center gap-4 mt-6 mx-auto p-2.5 bg-white rounded-md shadow-lg;
   }
 }

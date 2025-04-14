@@ -1,11 +1,16 @@
 import '../App.css'
-import { useNavigate } from 'react-router';
+import { useNavigate, useLocation } from 'react-router';
 import homeIcon from '../assets/home-icon.png';
 import accountIcon from '../assets/user-icon.png';
 import settingsIcon from '../assets/settings-icon.png'; 
 
 export function Container({children, title, backgroundColor}: {children: React.ReactNode, title: string, backgroundColor: string}) {
   const nav = useNavigate();
+  const location = useLocation();
+
+  function getActivePath(path: string) {
+    return location.pathname === path ? "bg-primary" : "";
+  }
 
   return (
     <view className={backgroundColor}>
@@ -14,18 +19,15 @@ export function Container({children, title, backgroundColor}: {children: React.R
         <text className="text-4xl font-bold text-center mx-auto mb-[24px] text-white">{title}</text>
         {children}
 
-        <view className="flex flex-col items-center justify-center gap-1 mt-12 mx-auto">
-          <view bindtap={() => nav('/')} className="button">
-            <image className="w-8 h-8" src={homeIcon} mode="aspectFill"/>
-            <text className="text-2xl font-bold text-dark">Home</text>
+        <view className="flex items-center justify-center gap-6 mt-20 mx-auto">
+          <view bindtap={() => nav('/')} className={`button ${getActivePath('/')}`}>
+            <image className="w-10 h-10" src={homeIcon} mode="aspectFill"/>
           </view>
-          <view bindtap={() => nav('/account')} className="button">
-            <image className="w-8 h-8" src={accountIcon} mode="aspectFill"/>
-            <text className="text-2xl font-bold text-dark">Account</text>
+          <view bindtap={() => nav('/account')} className={`button ${getActivePath('/account')}`}>
+            <image className="w-10 h-10" src={accountIcon} mode="aspectFill"/>
           </view>
-          <view bindtap={() => nav('/settings')} className="button">
-            <image className="w-8 h-8" src={settingsIcon} mode="aspectFill"/>
-            <text className="text-2xl font-bold text-dark">Settings</text>
+          <view bindtap={() => nav('/settings')} className={`button ${getActivePath('/settings')}`}>
+            <image className="w-10 h-10" src={settingsIcon} mode="aspectFill"/>
           </view>
         </view>
       </view>   

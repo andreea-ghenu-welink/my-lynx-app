@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from '@lynx-js/react'
+import { useRef, useEffect, useState } from '@lynx-js/react'
 import { Container } from './components/Container.tsx';
 import './App.css';
 
