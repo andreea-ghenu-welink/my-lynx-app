@@ -1,4 +1,4 @@
-import '../App.css'
+import '../index.scss'
 import { useNavigate } from 'react-router';
 import homeIcon from '../assets/home-icon.png';
 import accountIcon from '../assets/user-icon.png';

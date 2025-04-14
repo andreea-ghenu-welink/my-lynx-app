@@ -1,0 +1,26 @@
+@use "../abstract/_variables.scss" as *;
+
+.app-container {
+  background-color: $dark;
+}
+
+.account-container {
+  background-color: $secondary-color;
+}
+
+.settings-container {
+  background-color: $accent-color;
+}
+
+.background-circle {
+  position: fixed;
+  width: 200vw;
+  height: 110vw;
+  top: -70vw;
+  left: -14.27vw;
+  border-radius: 9999px;
+  transform: rotate(15.25deg);
+  background-color: $primary-color;
+  box-shadow: inset 0px 12.93px 28.74px 0px #ffd28db2;
+  z-index: 0;
+}
