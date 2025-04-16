@@ -6,8 +6,12 @@ export function App() {
 
   return (
     <Container title="Home" backgroundColor="app-container">
+      <text className="text-2xl font-normal text-center mx-auto mb-4 text-white">
+        Welcome to our app!
+      </text>
       <text className="text-2xl font-normal text-center mx-auto text-white">
-        Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat.
+        Discover a world of curated videos at your fingertips.
+        Browse featured content, explore detailed information, and enjoy a seamless viewing experience
       </text>
     </Container>
   )

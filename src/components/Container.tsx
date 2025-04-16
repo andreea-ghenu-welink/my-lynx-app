@@ -14,12 +14,12 @@ export function Container({children, title, backgroundColor}: {children: React.R
 
   return (
     <view className={backgroundColor}>
-      <view className="fixed w-[200vw] h-[110vw] top-[-70vw] left-[-14.27vw] rounded-full rotate-[15.25deg] bg-primary shadow-[inset_0px_12.93px_28.74px_0px_#ffd28db2] z-0" />
+      <view className="fixed w-[200vw] h-[110vw] -top-[70vw] -left-[14vw] rounded-full -rotate-[10deg] bg-primary shadow-[inset_0px_12.93px_28.74px_0px_#ffd28db2] z-0" />
       <view className="relative z-[1] h-screen flex flex-col items-center justify-center mx-[24px]">
-        <text className="text-4xl font-bold text-center mx-auto mb-[24px] text-white">{title}</text>
+        <text className="title | absolute top-24 text-5xl font-bold text-center mx-auto mb-6">{title}</text>
         {children}
 
-        <view className="flex items-center justify-center gap-6 mt-20 mx-auto">
+        <view className="nav-container | absolute bottom-10 flex items-center justify-center gap-6 mt-20 mx-auto">
           <view bindtap={() => nav('/')} className={`button ${getActivePath('/')}`}>
             <image className="w-10 h-10" src={homeIcon} mode="aspectFill"/>
           </view>
