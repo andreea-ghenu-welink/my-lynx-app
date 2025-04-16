@@ -6,30 +6,33 @@ import downArrowIcon from '../assets/down-arrow.png';
 const PAGE_URL = "https://lt.org/node/4930?_format=json";
 const AUTHOR_URL = "https://lt.org/node/4928?_format=json";
 const COVER_IMAGE_URL = "https://lt.org/sites/default/files/video/covers/Escobar%20Karla_Coverphoto.jpg";
+const VIDEO_URL = "https://player.vimeo.com/external/1063338932.m3u8?s=96d69dad1c2f2ab1de19011111de9b9eacbf1665&logging=false";
 
 export function ResearcherVideo() {
   const [isLoading, setIsLoading] = useState(true);
   const [data, setData] = useState([]);
-  const [coverImage, setCoverImage] = useState('');
   const [videoTitle, setVideoTitle] = useState('');
+  const [showLoader, setShowLoader] = useState(false);
   
   const placeholder = 
     <view className="flex flex-col gap-3 items-center justify-center">
       <text className="text-3xl leading-relaxed text-center text-white mb-4 mx-auto">
-        Click the 'Fetch Data' button bellow to fetch and display video info
+        Click the <text className="text-3xl text-gray-300">Fetch Data</text> button below to discover and display researcher video details
       </text>
-      <image className="w-16 h-16" src={downArrowIcon} mode="aspectFill"/>
+      <image className="bounce-animation | w-16 h-16" src={downArrowIcon} mode="aspectFill"/>
     </view>
 
   const handleFetchData = async () => {
+    setShowLoader(true);
+
     try {
-      fetchCoverImage();
       await fetchData();
       await fetchVideoTitle();
 
     } catch (error){
       console.error(error);
     } finally {
+      setShowLoader(false);
       setIsLoading(false);
     }
   }
@@ -37,10 +40,6 @@ export function ResearcherVideo() {
   const fetchData = async () => {
     const data = await fetch(AUTHOR_URL).then(res => res.json());
     setData(data);
-  }
-
-  const fetchCoverImage = () => {
-    setCoverImage(COVER_IMAGE_URL);
   }
 
   const fetchVideoTitle = async () => {
@@ -51,18 +50,21 @@ export function ResearcherVideo() {
   const handleClearData = () => {
     setData([]);
     setIsLoading(true);
+    setShowLoader(false);
     setVideoTitle('');
-    setCoverImage('');
   }
 
   return (
     <Container title="Video" backgroundColor='account-container'>
       { isLoading ? (
-        placeholder
+        showLoader ? (
+          <view className="loader | w-16 h-16"></view>
+        ) : (
+          placeholder
+        )
       ) : (
         <view className="video-card | flex flex-col bg-white rounded-xl overflow-hidden">
-          <image className="w-100 h-48" src={coverImage} mode="aspectFill"/>
-
+          <image className="w-100 h-48" src={COVER_IMAGE_URL} mode="aspectFill"/>
           <view className="flex flex-col gap-4 px-4 py-6">
             <text className="text-xl font-semibold mx-auto">
               {videoTitle}

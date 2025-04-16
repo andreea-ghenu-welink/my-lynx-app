@@ -6,8 +6,8 @@ export function Settings() {
 
   return (
     <Container title="Settings" backgroundColor="settings-container">
-      <text className="text-2xl font-normal text-center mx-auto text-white">
-        Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas.
+      <text className="text-2xl leading-relaxed text-center mx-auto text-white">
+        Adjust display settings, manage notifications, and configure account details to make the app work perfectly for you.
       </text>
     </Container>
   )

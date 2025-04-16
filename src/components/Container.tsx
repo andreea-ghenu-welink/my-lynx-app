@@ -1,7 +1,7 @@
 import '../App.css'
 import { useNavigate, useLocation } from 'react-router';
 import homeIcon from '../assets/home-icon.png';
-import accountIcon from '../assets/user-icon.png';
+import videoIcon from '../assets/video-icon.png';
 import settingsIcon from '../assets/settings-icon.png'; 
 
 export function Container({children, title, backgroundColor}: {children: React.ReactNode, title: string, backgroundColor: string}) {
@@ -24,7 +24,7 @@ export function Container({children, title, backgroundColor}: {children: React.R
             <image className="w-10 h-10" src={homeIcon} mode="aspectFill"/>
           </view>
           <view bindtap={() => nav('/account')} className={`button ${getActivePath('/account')}`}>
-            <image className="w-10 h-10" src={accountIcon} mode="aspectFill"/>
+            <image className="w-10 h-10" src={videoIcon} mode="aspectFill"/>
           </view>
           <view bindtap={() => nav('/settings')} className={`button ${getActivePath('/settings')}`}>
             <image className="w-10 h-10" src={settingsIcon} mode="aspectFill"/>
