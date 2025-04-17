@@ -1,18 +1,20 @@
 import { useState } from '@lynx-js/react';
+import { useNavigate } from 'react-router';
 import { Container } from '../components/Container.tsx';
 import '../App.css';
 import downArrowIcon from '../assets/down-arrow.png';
 
-const PAGE_URL = "https://lt.org/node/4930?_format=json";
+const VIDEO_PUBLICATION_URL = "https://lt.org/node/4930?_format=json";
 const AUTHOR_URL = "https://lt.org/node/4928?_format=json";
 const COVER_IMAGE_URL = "https://lt.org/sites/default/files/video/covers/Escobar%20Karla_Coverphoto.jpg";
-const VIDEO_URL = "https://player.vimeo.com/external/1063338932.m3u8?s=96d69dad1c2f2ab1de19011111de9b9eacbf1665&logging=false";
 
 export function ResearcherVideo() {
   const [isLoading, setIsLoading] = useState(true);
-  const [data, setData] = useState([]);
+  const [authorData, setAuthorData] = useState({});
   const [videoTitle, setVideoTitle] = useState('');
   const [showLoader, setShowLoader] = useState(false);
+
+  const nav = useNavigate();
   
   const placeholder = 
     <view className="flex flex-col gap-3 items-center justify-center">
@@ -26,7 +28,7 @@ export function ResearcherVideo() {
     setShowLoader(true);
 
     try {
-      await fetchData();
+      await fetchAuthorData();
       await fetchVideoTitle();
 
     } catch (error){
@@ -37,25 +39,25 @@ export function ResearcherVideo() {
     }
   }
 
-  const fetchData = async () => {
+  const fetchAuthorData = async () => {
     const data = await fetch(AUTHOR_URL).then(res => res.json());
-    setData(data);
+    setAuthorData(data);
   }
 
   const fetchVideoTitle = async () => {
-    const data = await fetch(PAGE_URL).then(res => res.json());
+    const data = await fetch(VIDEO_PUBLICATION_URL).then(res => res.json());
     setVideoTitle(data.title[0].value);
   }
 
   const handleClearData = () => {
-    setData([]);
+    setAuthorData([]);
     setIsLoading(true);
     setShowLoader(false);
     setVideoTitle('');
   }
 
   return (
-    <Container title="Video" backgroundColor='account-container'>
+    <Container title="Video" backgroundColor="video-container">
       { isLoading ? (
         showLoader ? (
           <view className="loader | w-16 h-16"></view>
@@ -63,14 +65,14 @@ export function ResearcherVideo() {
           placeholder
         )
       ) : (
-        <view className="video-card | flex flex-col bg-white rounded-xl overflow-hidden">
+        <view className="video-card | flex flex-col bg-white rounded-xl overflow-hidden" bindtap={() => nav("/video-publication")}>
           <image className="w-100 h-48" src={COVER_IMAGE_URL} mode="aspectFill"/>
           <view className="flex flex-col gap-4 px-4 py-6">
             <text className="text-xl font-semibold mx-auto">
               {videoTitle}
             </text>
             <text className="text-xl font-normal">
-              {data.title[0].value}
+              {authorData.title[0].value}
             </text>
           </view>
         </view>

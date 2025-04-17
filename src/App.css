@@ -20,16 +20,16 @@
     @apply bg-dark;
   }
 
-  .account-container {
+  .video-container {
     @apply bg-secondary;
   }
 
-  .settings-container {
-    @apply bg-accent;
+  .publication-container {
+    @apply bg-white;
   }
 
   .button {
-    @apply flex items-center justify-center gap-4 mt-6 mx-auto p-2.5 bg-white rounded-md shadow-lg;
+    @apply flex items-center justify-center gap-4 mt-6 mx-auto p-2.5 bg-white rounded-lg shadow-lg;
   }
 
   .bounce-animation {
